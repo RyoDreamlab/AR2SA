@@ -168,10 +168,8 @@ if __name__ == '__main__':
     wandb.require("core")
     
     # Data
-    filterlist = None
-    testfilterlist = None
-    train_loader=get_train_dataloader(args, filterlist)
-    val_loader = get_val_dataloader(args,"test",testfilterlist)
+    train_loader=get_train_dataloader(args)
+    val_loader = get_val_dataloader(args,"test")
     # Model
     model = AdaptiveAVS(args).cuda()
           
@@ -205,7 +203,6 @@ if __name__ == '__main__':
         logits_list = []
         id_list = []
         for batch_idx, batch_data in enumerate(train_loader):
-            # audio_emb,visual_feats,T2Vpos_loss,T2Apos_loss = Bridgemodel(temp, batch_data)
             loss_vid, logits = model(batch_data,idx_ep)
             optimizer.zero_grad()
             loss_vid.backward()
