@@ -158,8 +158,6 @@ class AVSBench(Dataset):
         metadata = pd.read_csv(meta_path, header=0)
         sub_data = metadata[metadata['label'] == ver] 
         self.metadata = sub_data[sub_data['split'] == split] 
-        if filterlist is not None:
-            self.metadata = self.metadata[~self.metadata["uid"].isin(filterlist)].reset_index(drop=True)
         self.frame_num = 10 if ver == 'v2' else 5  
         self.pallete = get_v2_pallete('./data/label2idx.json')
         if self.ver == 'v1s' and self.split=='train':
