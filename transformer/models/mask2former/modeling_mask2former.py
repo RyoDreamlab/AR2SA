@@ -2614,8 +2614,6 @@ class Mask2FormerModel(Mask2FormerPreTrainedModel):
             CLIP_intersection=CLIP_intersection,
             dpcknn_scale_features=None,
             anchor_pixel_level_module_output_decoder=None,
-            # aux_multi_scale_features = aux_pixel_level_module_output.decoder_hidden_states,
-            # aux_mask_features=aux_mask_features,
             iter = iter,
             aux_audio_boost_mask=aux_audio_boost_mask,
             batch_id=batch_id
