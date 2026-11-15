@@ -2899,8 +2899,6 @@ class Mask2FormerForUniversalSegmentation(Mask2FormerPreTrainedModel):
             )
             
         loss = self.get_loss(loss_dict)
-    
-            # loss_dict['loss_mask'] += extraloss_dict['loss_mask']
         loss = loss
         encoder_hidden_states = None
         pixel_decoder_hidden_states = None
