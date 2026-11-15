@@ -95,9 +95,7 @@ def custom_collate(batch):
         "mask_recs": mask_recs,
         "image_size": image_size,
         "vid": vid,
-        # 替换
         "feat_aud": feat_aud,
-        # 替换
         "pixel_values": pixel_values,
         "pixel_mask": pixel_mask,
         "class_labels": class_labels,
@@ -105,7 +103,6 @@ def custom_collate(batch):
         "task":task,
         "optical":optical,
         "optical2":optical2,
-        # "audio_inference_text":audio_inference_text,
         # "visual_inference_text":visual_inference_text,
         # "unified_text":unified_text,
         # "NEW_text":NEW_text,
