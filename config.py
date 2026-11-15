@@ -80,18 +80,6 @@ parser.add_argument(
     help="monitor the fixed test split every epoch without using it for checkpoint selection.",
 )
 parser.add_argument(
-    "--sfd_memory",
-    default=False,
-    action="store_true",
-    help="use label-free SFD memory updates for train/val/test masks.",
-)
-parser.add_argument(
-    "--sfd_buffer_dir",
-    type=str,
-    default="./v1mSFD_euclidean_buffer",
-    help="temporary buffer root for SFD memory updates.",
-)
-parser.add_argument(
     "--save_epoch_pth",
     default=False,
     action="store_true",
