@@ -3,7 +3,6 @@
 # AR2SA
 
 ### Geometric Polarization of Ambiguous Regions towards Silent and Audio States for Audio-Visual Segmentation
-
 **Audio-Visual Segmentation · Geometric Polarization · Audio-Guided Mask Prediction**
 
 [Overview](#overview) · [Architecture](#architecture) · [Getting Started](#getting-started) · [Training](#training) · [Evaluation](#evaluation) · [Analysis](#analysis-and-visualization)
