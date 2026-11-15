@@ -1949,14 +1949,10 @@ class Mask2FormerMaskedAttentionDecoder(nn.Module):
         intermediate_hidden_states = self.layernorm(inputs_embeds)
         intermediate += (intermediate_hidden_states,)
 
-        # pre_intermediate += (intermediate_hidden_states,)
         
         predicted_mask, attention_mask = self.mask_predictor(
             intermediate_hidden_states, pixel_embeddings, feature_size_list[0]
         )         
-
-        # pre_predicted_mask, pre_attention_mask = self.pre_mask_predictor(intermediate_hidden_states,pixel_embeddings,
-        #                                                             feature_size_list[0])
 
         if audio_boost_mask is not None:
             audio_boost_mask = nn.functional.interpolate(
@@ -1964,13 +1960,6 @@ class Mask2FormerMaskedAttentionDecoder(nn.Module):
             ).unsqueeze(1).repeat(1, self.num_heads, inputs_embeds.shape[0], 1, 1).flatten(0, 1).flatten(2)  # (b*nh)*q*hw
             attention_mask[torch.where(audio_boost_mask <0.5)] = True
             attention_mask[torch.where(audio_boost_mask >=0.5)] = False
-            # if aux_audio_boost_mask is not None:
-            #     aux_audio_boost_mask = nn.functional.interpolate(
-            #     aux_audio_boost_mask.unsqueeze(1), size=feature_size_list[0], mode="bilinear"
-            # ).unsqueeze(1).repeat(1, self.num_heads, inputs_embeds.shape[0], 1, 1).flatten(0, 1).flatten(2)  # (b*nh)*q*hw
-            #     audio_boost_mask = torch.sigmoid(audio_boost_mask + aux_audio_boost_mask)
-            #     attention_mask[torch.where(audio_boost_mask <0.5)] = True
-            #     attention_mask[torch.where(audio_boost_mask >=0.5)] = False
 
         intermediate_mask_predictions += (predicted_mask,)
         for idx, decoder_layer in enumerate(self.layers):
