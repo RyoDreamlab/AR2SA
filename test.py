@@ -19,10 +19,7 @@ if __name__ == '__main__':
     
 
     set_seed(219)
-    test_loader = get_val_dataloader(args,"test",filterlist=None)
-    # if args.save_mask:
-    #     os.makedirs("save_masks", exist_ok=True)
-    # Model
+    test_loader = get_val_dataloader(args,"test")
     model = AdaptiveAVS(args).cuda()
     print(args.ckpt_dir)
     checkpoint = torch.load(args.ckpt_dir, map_location="cpu")
