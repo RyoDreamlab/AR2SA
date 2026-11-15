@@ -69,7 +69,6 @@ def load_color_mask_in_PIL_to_Tensor(path, v_pallete, split='train', mode='RGB')
     return color_label 
 
 def custom_collate(batch):
-    # print(batch[0].keys())
     mask_recs = batch[0]['mask_recs']
     image_size = batch[0]['image_size']
     vid = batch[0]['vid']
@@ -103,7 +102,6 @@ def custom_collate(batch):
         "task":task,
         "optical":optical,
         "optical2":optical2,
-        # "unified_text":unified_text,
         # "NEW_text":NEW_text,
         # "visualClip":visualClip,
         # "visualClip_nobg":visualClip_nobg,
