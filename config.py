@@ -49,14 +49,14 @@ parser.add_argument(
 parser.add_argument("--save_mask", default=False, action='store_true', help="whether save the test set mask.")
 parser.add_argument("--train_mask_dir", type=str, default="./v1mtrainMASK1000", help="training pre-mask cache directory.")
 parser.add_argument("--test_mask_dir", type=str, default="./v1mtestMASK1000", help="test pre-mask cache directory.")
-parser.add_argument("--mask_warmup_epochs", type=int, default=1, help="epochs that use only opticalNObg before reading saved pre-masks.")
-parser.add_argument("--warmup_best_init_masks", default=False, action="store_true", help="during warmup, keep masks from the best test-mIoU epoch as the initial pre-mask cache.")
-parser.add_argument("--update_masks_after_warmup", default=False, action="store_true", help="after warmup, overwrite train/test pre-mask caches every epoch.")
-parser.add_argument("--init_masks_from_resume", default=False, action="store_true", help="after loading resume_ckpt, run one no-grad pass to initialize train/test pre-mask caches before training.")
-parser.add_argument("--init_mask_epoch", type=int, default=0, help="epoch index passed to the model when initializing masks from resume_ckpt; keep it below mask_warmup_epochs to use opticalNObg.")
-parser.add_argument("--stage2_lr", type=float, default=1e-4, help="learning rate after mask warmup.")
-parser.add_argument("--stage2_epochs", type=int, default=5, help="number of epochs using stage2_lr after warmup.")
-parser.add_argument("--stage3_lr", type=float, default=5e-5, help="learning rate after stage2.")
+# parser.add_argument("--mask_warmup_epochs", type=int, default=1, help="epochs that use only opticalNObg before reading saved pre-masks.")
+# parser.add_argument("--warmup_best_init_masks", default=False, action="store_true", help="during warmup, keep masks from the best test-mIoU epoch as the initial pre-mask cache.")
+# parser.add_argument("--update_masks_after_warmup", default=False, action="store_true", help="after warmup, overwrite train/test pre-mask caches every epoch.")
+# parser.add_argument("--init_masks_from_resume", default=False, action="store_true", help="after loading resume_ckpt, run one no-grad pass to initialize train/test pre-mask caches before training.")
+# parser.add_argument("--init_mask_epoch", type=int, default=0, help="epoch index passed to the model when initializing masks from resume_ckpt; keep it below mask_warmup_epochs to use opticalNObg.")
+# parser.add_argument("--stage2_lr", type=float, default=1e-4, help="learning rate after mask warmup.")
+# parser.add_argument("--stage2_epochs", type=int, default=5, help="number of epochs using stage2_lr after warmup.")
+# parser.add_argument("--stage3_lr", type=float, default=5e-5, help="learning rate after stage2.")
 parser.add_argument(
     "--split_mode",
     type=str,
