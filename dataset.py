@@ -107,7 +107,6 @@ def custom_collate(batch):
         # "NEW_text":NEW_text,
         # "visualClip":visualClip,
         # "visualClip_nobg":visualClip_nobg,
-        # "GTtext":GTtext,
         "clap_feat_aud":clap_feat_aud,
         "onlyAUD":onlyAUD,
         "opticalNObg":opticalNObg,
