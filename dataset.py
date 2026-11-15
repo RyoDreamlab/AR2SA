@@ -103,7 +103,6 @@ def custom_collate(batch):
         "task":task,
         "optical":optical,
         "optical2":optical2,
-        # "visual_inference_text":visual_inference_text,
         # "unified_text":unified_text,
         # "NEW_text":NEW_text,
         # "visualClip":visualClip,
