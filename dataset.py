@@ -116,9 +116,8 @@ def get_train_dataloader(args,filterlist):
         return get_avs_train_dataloader(args,filterlist)
 
 
-def get_avs_train_dataloader(args, filterlist):
-    # 改
-    train_dataset = AVSBench(args,'train', args.task, filterlist)
+def get_avs_train_dataloader(args):
+    train_dataset = AVSBench(args,'train', args.task)
     print("++++++++++++++++++++++",len(train_dataset))
     train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=args.bs, shuffle=True, num_workers=args.num_workers,collate_fn=custom_collate)
     return train_loader
