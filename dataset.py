@@ -125,7 +125,7 @@ def get_val_dataloader(args,split,filterlist):
     if args.task=="avss":
         return get_avss_val_dataloader(args,split)
     else:
-        return get_avs_val_dataloader(args,split,filterlist)
+        return get_avs_val_dataloader(args,split)
 
 def get_avs_val_dataloader(args,split):
     # 改
