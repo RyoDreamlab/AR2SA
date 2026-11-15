@@ -2219,7 +2219,6 @@ class Mask2FormerTransformerModule(nn.Module):
         loss_bce, loss_conf,loss_feat_dist, loss_mmd,multiSales_diceloss =0.0,0.0,0.0,0.0,0.0
         low = 0.4
         high = 0.6      
-
         if audio_boost_mask is not None:
             for i in range(self.num_feature_levels):
                 size_list.append(multi_scale_features[i].shape[-2:])
