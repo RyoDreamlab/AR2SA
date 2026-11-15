@@ -2196,39 +2196,6 @@ class Mask2FormerTransformerModule(nn.Module):
         self.upsample_24_TO_12 = Semantic_flow(256,256)
         self.upsample_48_TO_24 = Semantic_flow(256,256)
     
-    # def dpcknn(self, query_features, query_embeddings, VIS_FEATS, VIS_FEATS_pos, attention_mask, mask_features, size_list, intermediate_mask_predictions,  
-    #            intermediate, select):
-    #     VIS_FEATS_CTM = []
-    #     VIS_FEATS_CTM_pos = []
-    #     # all_hidden_states = ()
-    #     ratio = [1,1,1]
-    #     for i in range(len(VIS_FEATS)):
-    #         ctm = self.ctm_layer_feats[i]
-    #         # blk = self.tcblock[i]
-            
-    #         visual_features = VIS_FEATS[i]
-    #         K, B, C = visual_features.shape
-    #         H = W = int(math.sqrt(K))
-    #         # x = visual_features.permute(1,0,2)
-
-    #         visual_features = visual_features.permute(1, 2, 0).reshape(B, C, H, W)
-    #         B,C,H,W = visual_features.shape
-    #         N_original = H * W  # 2304
-    #         P = int(H*W*ratio[i])  # 采样后的组数 (2304 * 0.25)
-    #         initial_token_dict = {
-    #             'x': visual_features.flatten(2).transpose(1, 2).contiguous(),
-    #             'map_size': [H, W],
-    #             'init_grid_size': [H, W],
-    #             'token_num': N_original,
-    #             'idx_token': torch.arange(N_original)[None, :].expand(B, -1).cuda()
-    #         }
-    #         token_dict, info_dict = ctm(initial_token_dict)
-            
-    #         VIS_FEATS_CTM.append(token_dict['x'].permute(1,0,2))
-    #         VIS_FEATS_CTM_pos=VIS_FEATS_pos#.append(VIS_FEATS_pos)
-
-
-    
     def forward(
             self,
             multi_scale_features: List[Tensor],
