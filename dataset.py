@@ -121,7 +121,7 @@ def get_avs_train_dataloader(args):
     print("++++++++++++++++++++++",len(train_dataset))
     train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=args.bs, shuffle=True, num_workers=args.num_workers,collate_fn=custom_collate)
     return train_loader
-def get_val_dataloader(args,split,filterlist):
+def get_val_dataloader(args,split):
     if args.task=="avss":
         return get_avss_val_dataloader(args,split)
     else:
@@ -148,7 +148,7 @@ def text_global_pool(x, text: Optional[torch.Tensor] = None, pool_type: str = 'a
 
 
 class AVSBench(Dataset):
-    def __init__(self, args, split, ver, filterlist):
+    def __init__(self, args, split, ver):
         self.ver = ver
         self.data_base_path = args.data_path
         self.data_path = os.path.join(self.data_base_path,ver,split)
