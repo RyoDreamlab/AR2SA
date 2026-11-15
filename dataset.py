@@ -109,11 +109,11 @@ def custom_collate(batch):
         "opticalNObg":opticalNObg,
     }
     return res
-def get_train_dataloader(args,filterlist):
+def get_train_dataloader(args):
     if args.task=="avss":
         return get_avss_train_dataloader(args)
     else:
-        return get_avs_train_dataloader(args,filterlist)
+        return get_avs_train_dataloader(args)
 
 
 def get_avs_train_dataloader(args):
