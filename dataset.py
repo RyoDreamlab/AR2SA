@@ -128,9 +128,9 @@ def get_val_dataloader(args,split,filterlist):
     else:
         return get_avs_val_dataloader(args,split,filterlist)
 
-def get_avs_val_dataloader(args,split,filterlist):
+def get_avs_val_dataloader(args,split):
     # 改
-    train_dataset = AVSBench(args,split, args.task,filterlist)
+    train_dataset = AVSBench(args,split)
     train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=args.bs, shuffle=True, num_workers=args.num_workers,collate_fn=custom_collate)
     return train_loader
     
