@@ -178,7 +178,7 @@ class AVSBench(Dataset):
     def get_audio_emb(self, wav_path):
         """ wav string path. """ 
         emb = torch.tensor(self.audio_vggish_pipeline(wav_path).get()[0])
-        return emb
+        return emb # To save time, the detect silence audio and substitude black frame is done beforehand.
     
     def __getitem__(self, idx):
         df_one_video = self.metadata.iloc[idx]
