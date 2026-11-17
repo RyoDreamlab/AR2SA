@@ -176,24 +176,10 @@ class AVSBench(Dataset):
     def __len__(self):
         return len(self.metadata)
         
-    
     def get_audio_emb(self, wav_path):
         """ wav string path. """ 
-        # warnings.filterwarnings("ignore", category=UserWarning)
-        # import warnings
-        EMB = []
-        for i in range(5):
-            name = str(i+1)+'.wav'
-            jrwav_path = os.path.join(wav_path, name)
-            emb = torch.tensor(self.audio_vggish_pipeline(jrwav_path).get()[0])
-            # print(emb.shape) [1,1,128]
-            EMB.append(emb)
-        emb = torch.stack(EMB).squeeze(1)
+        emb = torch.tensor(self.audio_vggish_pipeline(wav_path).get()[0])
         return emb
-    # def get_audio_emb(self, wav_path):
-    #     """ wav string path. """ 
-    #     emb = torch.tensor(self.audio_vggish_pipeline(wav_path).get()[0])
-    #     return emb
 
 
     def get_visual_emb(self, image):
