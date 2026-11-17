@@ -221,7 +221,7 @@ class AVSBench(Dataset):
             while feat_aud.shape[0] != 5:
                 feat_aud = torch.concat([feat_aud, feat_aud[-1].view(1, -1)], dim=0)
         
-        image_list, label_list, nobg_white_list, onlyAUD = [],[],[],[]
+        image_list, label_list, optical_nobg_list = [],[],[]
         for _idx in range(self.frame_num):  
             _idx=0 if self.split == 'train' and self.ver == 'v1s' else _idx
             path_mask = f'./{self.data_path}/{vid}/labels_rgb/{_idx}.png'
@@ -239,7 +239,7 @@ class AVSBench(Dataset):
             opticalNObg_mask = cv2.resize(opticalNObg_mask, (384, 384))
             opticalNObg_mask = cv2.cvtColor(opticalNObg_mask, cv2.COLOR_BGR2GRAY)
             opticalNObg_mask = torch.as_tensor((opticalNObg_mask > 0), dtype=torch.float32)
-            nobg_white_list.append(opticalNObg_mask)
+            optical_nobg_list.append(opticalNObg_mask)
             
 
         image_inputs = self.img_process.preprocess(image_list, label_list,return_tensors="pt")
@@ -249,7 +249,7 @@ class AVSBench(Dataset):
         image_inputs["mask_recs"] = torch.stack(label_list)
         image_inputs["image_size"] = [(384,384)]
         image_inputs["vid"] = vid
-        image_inputs["opticalNObg"]= torch.stack(nobg_white_list)
+        image_inputs["opticalNObg"]= torch.stack(optical_nobg_list)
         image_inputs["task"]=self.ver
 
         
