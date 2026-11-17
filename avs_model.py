@@ -58,7 +58,8 @@ class AdaptiveAVS(nn.Module):
         pre_mask = []
         # warmup_epochs = int(getattr(self.args, "mask_warmup_epochs",0))
         # use_saved_mask = idx_ep == warmup_epochs
-        if not use_saved_mask:
+        if idx_ep < 1:
+            # first epoch no previous results can be used, solely use the opticalNObg
             opticalNObg = (batch_data['opticalNObg']!=0).float().cuda() * self.learnmask
         else:
             opticalNObg = (batch_data['opticalNObg']!=0).float().cuda()
