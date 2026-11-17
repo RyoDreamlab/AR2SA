@@ -56,8 +56,8 @@ class AdaptiveAVS(nn.Module):
         audio_emb = self.audio_proj_vgg(audio_emb_vgg_ori)
 
         pre_mask = []
-        warmup_epochs = int(getattr(self.args, "mask_warmup_epochs",0))
-        use_saved_mask = idx_ep == warmup_epochs
+        # warmup_epochs = int(getattr(self.args, "mask_warmup_epochs",0))
+        # use_saved_mask = idx_ep == warmup_epochs
         if not use_saved_mask:
             opticalNObg = (batch_data['opticalNObg']!=0).float().cuda() * self.learnmask
         else:
