@@ -127,8 +127,7 @@ def get_val_dataloader(args,split):
     else:
         return get_avs_val_dataloader(args,split)
 
-def get_avs_val_dataloader(args,split):
-    # 改
+def get_avs_val_dataloader(args,split)
     train_dataset = AVSBench(args,split)
     train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=args.bs, shuffle=True, num_workers=args.num_workers,collate_fn=custom_collate)
     return train_loader
@@ -180,29 +179,15 @@ class AVSBench(Dataset):
         """ wav string path. """ 
         emb = torch.tensor(self.audio_vggish_pipeline(wav_path).get()[0])
         return emb
-
-
-    def get_visual_emb(self, image):
-        """
-        image: PIL.Image 或者 tensor (C,H,W)，如果是 PIL 就直接 preprocess
-        """
-        image = Image.fromarray(image.transpose(1,2,0).astype('uint8'))
-        image = self.preprocess(image)
-        image = torch.stack(image).cuda()
-
-        image_emb = self.clip_model.encode_image(image)
-        image_emb = F.normalize(image_emb, p=2, dim=-1)
-        return image_emb
-
     
     def __getitem__(self, idx):
         df_one_video = self.metadata.iloc[idx]
         vid = df_one_video['uid']
         gttext = df_one_video['a_obj']
 
-        clap_rec_audio = f'./{self.data_path}/{vid}/audio_segments'
-        feat_aud = self.get_audio_emb(clap_rec_audio)
-
+        # Audio data
+        rec_audio = f'{self.data_path}/{vid}/audio.wav'
+        feat_aud = self.get_audio_emb(rec_audio)
         if feat_aud.shape[0] != 5 and self.ver == 'v1s':
             while feat_aud.shape[0] != 5:
                 feat_aud = torch.concat([feat_aud, feat_aud[-1].view(1, -1)], dim=0)
@@ -237,6 +222,7 @@ class AVSBench(Dataset):
         image_inputs["vid"] = vid
         image_inputs["opticalNObg"]= torch.stack(optical_nobg_list)
         image_inputs["task"]=self.ver
+        image_inputs["feat_aud"] = feat_aud
 
         
         return image_inputs
