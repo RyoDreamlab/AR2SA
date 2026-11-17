@@ -47,6 +47,7 @@ class AdaptiveAVS(nn.Module):
         # batch_data obtained from dataset.py
         # batch_data["feat_aud"] audio data
         # batch_data["opticalNObg"] optical-flow & No-background 
+        # batch_data["pixel_values"] rgb image
         len_img = len(batch_data["mask_recs"])
         image_sizes = batch_data["image_size"]
         image_sizes = len_img * image_sizes
