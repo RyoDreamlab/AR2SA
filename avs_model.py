@@ -61,6 +61,7 @@ class AdaptiveAVS(nn.Module):
         if idx_ep < 1:
             # first epoch no previous results can be used, solely use the opticalNObg
             opticalNObg = (batch_data['opticalNObg']!=0).float().cuda() * self.learnmask
+            img_input["audio_boost_mask"] = opticalNObg
         else:
             opticalNObg = (batch_data['opticalNObg']!=0).float().cuda()
             for _idx in range(5):
@@ -77,11 +78,7 @@ class AdaptiveAVS(nn.Module):
                 pre = torch.as_tensor((pre > 0), dtype=torch.int)
                 pre_mask.append(pre)
             pre_mask = (torch.stack(pre_mask)!=0).float().cuda() * opticalNObg * self.learnmask
-
-        if not use_saved_mask:
-            img_input["audio_boost_mask"] = opticalNObg
-        else:
-            img_input["audio_boost_mask"] = pre_mask
+            img_input["audio_boost_mask"] = pre_mask         
         
 
         img_input['prompt_features_projected'] = audio_emb
