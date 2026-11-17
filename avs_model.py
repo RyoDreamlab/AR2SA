@@ -46,6 +46,7 @@ class AdaptiveAVS(nn.Module):
     def forward(self, batch_data, idx_ep):
         # batch_data obtained from dataset.py
         # batch_data["feat_aud"] audio data
+        # batch_data["opticalNObg"] optical-flow & No-background 
         len_img = len(batch_data["mask_recs"])
         image_sizes = batch_data["image_size"]
         image_sizes = len_img * image_sizes
