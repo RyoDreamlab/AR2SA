@@ -91,7 +91,6 @@ def custom_collate(batch):
         "task":task,
         "optical":optical,
         "optical2":optical2,
-        # "visualClip":visualClip,
         # "visualClip_nobg":visualClip_nobg,
         "clap_feat_aud":clap_feat_aud,
         "onlyAUD":onlyAUD,
