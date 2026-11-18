@@ -79,7 +79,6 @@ def custom_collate(batch):
     mask_labels = batch[0]['mask_labels']
     task=batch[0]['task']
     audio_inference_text=batch[0]['audio_inference_text']
-    visual_inference_text=batch[0]['visual_inference_text']
     opticalNObg=batch[0]["opticalNObg"]
     res = {
         "mask_recs": mask_recs,
