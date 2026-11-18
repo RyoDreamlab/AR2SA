@@ -83,7 +83,6 @@ def custom_collate(batch):
     unified_text=batch[0]['unified_text']
     NEW_text=batch[0]['NEW_text']
     visualClip_nobg=batch[0]['visualClip_nobg']
-    GTtext = batch[0]['GTtext']
     opticalNObg=batch[0]["opticalNObg"]
     res = {
         "mask_recs": mask_recs,
