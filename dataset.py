@@ -82,7 +82,6 @@ def custom_collate(batch):
     visual_inference_text=batch[0]['visual_inference_text']
     unified_text=batch[0]['unified_text']
     NEW_text=batch[0]['NEW_text']
-    visualClip = batch[0]['visualClip']
     visualClip_nobg=batch[0]['visualClip_nobg']
     GTtext = batch[0]['GTtext']
     clap_feat_aud=batch[0]['clap_feat_aud']
