@@ -93,7 +93,6 @@ def custom_collate(batch):
         "optical2":optical2,
         # "visualClip_nobg":visualClip_nobg,
         "clap_feat_aud":clap_feat_aud,
-        "onlyAUD":onlyAUD,
         "opticalNObg":opticalNObg,
     }
     return res
