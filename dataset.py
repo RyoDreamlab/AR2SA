@@ -89,7 +89,6 @@ def custom_collate(batch):
         "class_labels": class_labels,
         "mask_labels": mask_labels,
         "task":task,
-        "optical":optical,
         "opticalNObg":opticalNObg,
     }
     return res
