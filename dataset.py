@@ -91,7 +91,6 @@ def custom_collate(batch):
         "task":task,
         "optical":optical,
         "optical2":optical2,
-        # "visualClip_nobg":visualClip_nobg,
         "opticalNObg":opticalNObg,
     }
     return res
