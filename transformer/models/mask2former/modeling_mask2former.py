@@ -1898,7 +1898,6 @@ class Mask2FormerMaskedAttentionDecoder(nn.Module):
         aux_mask_features: Optional[Tensor]=None,
         aux_multi_stage_features: Optional[Tensor]=None,
         aux_multi_stage_positional_embeddings: Optional[Tensor]=None,
-        aux_audio_boost_mask: Optional[torch.Tensor] = None,
            
         # pre_inputs_embeds: torch.Tensor = None,
         # pre_all_hidden_states: Optional[tuple] = None,
@@ -2202,7 +2201,6 @@ class Mask2FormerTransformerModule(nn.Module):
             aux_mask_features: Optional[Tensor]=None,
             anchor_pixel_level_module_output_decoder: Optional[List]=None,
             iter: Optional[int] = None,
-            aux_audio_boost_mask: Optional[Tensor] = None,
             batch_id: Optional[str]=None,
             
         
@@ -2377,7 +2375,6 @@ class Mask2FormerTransformerModule(nn.Module):
             anchor_audio_boost_mask=anchor_audio_boost_mask,
             pre_intermediate_mask_predictions=pre_intermediate_mask_predictions,
             pre_intermediate=pre_intermediate,
-            aux_audio_boost_mask=aux_audio_boost_mask,
         )
         loss_audio_text = loss_conf + loss_mmd + multiSales_diceloss# + final_loss#+ loss_feat_dist + loss_tv
 
@@ -2530,7 +2527,6 @@ class Mask2FormerModel(Mask2FormerPreTrainedModel):
         anchor_aux_pixel_values_audio: Optional[Tensor] = None,
         anchor_aux_pixel_values_bg: Optional[Tensor] = None,
         iter: Optional[int]=None,
-        aux_audio_boost_mask: Optional[Tensor] = None,
         batch_id: Optional[str]=None,
     ) -> Mask2FormerModelOutput:
         r"""
@@ -2614,7 +2610,6 @@ class Mask2FormerModel(Mask2FormerPreTrainedModel):
             dpcknn_scale_features=None,
             anchor_pixel_level_module_output_decoder=None,
             iter = iter,
-            aux_audio_boost_mask=aux_audio_boost_mask,
             batch_id=batch_id
         )
 
@@ -2732,7 +2727,6 @@ class Mask2FormerForUniversalSegmentation(Mask2FormerPreTrainedModel):
         anchor_aux_pixel_values_audio: Optional[Tensor] = None,
         anchor_aux_pixel_values_bg: Optional[Tensor] = None,
         iter: Optional[int]=None,
-        aux_audio_boost_mask: Optional[Tensor] = None,
         batch_id: Optional[str]=None,
     ) -> Mask2FormerForUniversalSegmentationOutput:
         r"""
@@ -2872,7 +2866,6 @@ class Mask2FormerForUniversalSegmentation(Mask2FormerPreTrainedModel):
             anchor_aux_pixel_values_audio=anchor_aux_pixel_values_audio,
             anchor_aux_pixel_values_bg=anchor_aux_pixel_values_bg,
             iter=iter,
-            aux_audio_boost_mask=aux_audio_boost_mask,
             batch_id=batch_id
         )
         loss, loss_dict, auxiliary_logits = None, None, None
