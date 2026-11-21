@@ -2519,7 +2519,6 @@ class Mask2FormerModel(Mask2FormerPreTrainedModel):
         output_attentions: Optional[bool] = None,
         return_dict: Optional[bool] = None,
         audio_boost_mask: Optional[Tensor] = None,
-        CLIP_intersection: Optional[Tensor] = None,
         aux_pixel_values_audio: Optional[Tensor] = None,
         aux_pixel_values_bg: Optional[Tensor] = None,
         anchor_aux_pixel_values_audio: Optional[Tensor] = None,
