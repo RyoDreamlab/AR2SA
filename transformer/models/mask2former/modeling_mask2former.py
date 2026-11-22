@@ -2851,7 +2851,6 @@ class Mask2FormerForUniversalSegmentation(Mask2FormerPreTrainedModel):
             output_hidden_states=output_hidden_states or self.config.use_auxiliary_loss,
             output_attentions=output_attentions,
             return_dict=True,
-            visualClip=visualClip,
             audio_boost_mask=audio_boost_mask,
             anchor_audio_boost_mask=anchor_audio_boost_mask,
             CLIP_intersection=CLIP_intersection,
