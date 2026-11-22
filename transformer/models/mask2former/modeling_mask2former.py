@@ -2900,7 +2900,7 @@ class Mask2FormerForUniversalSegmentation(Mask2FormerPreTrainedModel):
         )
         if not output_auxiliary_logits:
             auxiliary_logits = None
-
+        # Decoder output
         output = Mask2FormerForUniversalSegmentationOutput(
             loss=loss,
             class_queries_logits=class_queries_logits[-1],
