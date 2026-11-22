@@ -2714,7 +2714,6 @@ class Mask2FormerForUniversalSegmentation(Mask2FormerPreTrainedModel):
         output_auxiliary_logits: Optional[bool] = None,
         output_attentions: Optional[bool] = None,
         return_dict: Optional[bool] = None,
-        visualClip: Optional[bool]=None,
         audio_boost_mask: Optional[Tensor] = None,
         anchor_audio_boost_mask: Optional[Tensor] = None,
         label_post_mask: Optional[Tensor] = None,
