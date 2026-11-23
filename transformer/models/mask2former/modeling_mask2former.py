@@ -2514,7 +2514,6 @@ class Mask2FormerModel(Mask2FormerPreTrainedModel):
         pixel_values: Tensor,
         pixel_mask: Optional[Tensor] = None,
         prompt_features_projected: Optional[Tensor] = None,
-        prompt_features_ori: Optional[Tensor] = None,
         output_hidden_states: Optional[bool] = None,
         output_attentions: Optional[bool] = None,
         return_dict: Optional[bool] = None,
