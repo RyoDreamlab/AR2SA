@@ -2845,7 +2845,6 @@ class Mask2FormerForUniversalSegmentation(Mask2FormerPreTrainedModel):
             pixel_values=pixel_values,
             pixel_mask=pixel_mask,
             prompt_features_projected=prompt_features_projected,
-            prompt_features_ori=prompt_features_ori,
             output_hidden_states=output_hidden_states or self.config.use_auxiliary_loss,
             output_attentions=output_attentions,
             return_dict=True,
