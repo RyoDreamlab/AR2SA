@@ -2705,7 +2705,6 @@ class Mask2FormerForUniversalSegmentation(Mask2FormerPreTrainedModel):
         self,
         pixel_values: Tensor,
         prompt_features_projected: Optional[Tensor] = None,
-        prompt_features_ori: Optional[Tensor] = None,
         mask_labels: Optional[List[Tensor]] = None,
         class_labels: Optional[List[Tensor]] = None,
         pixel_mask: Optional[Tensor] = None,
