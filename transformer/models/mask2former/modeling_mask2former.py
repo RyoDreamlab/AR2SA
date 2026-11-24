@@ -2599,7 +2599,6 @@ class Mask2FormerModel(Mask2FormerPreTrainedModel):
             anchor_mask_features=anchor_mask_features,
             output_hidden_states=True,
             output_attentions=output_attentions,
-            visualClip=visualClip,
             audio_boost_mask=audio_boost_mask,
             anchor_audio_boost_mask = anchor_audio_boost_mask,
             CLIP_intersection=CLIP_intersection,
