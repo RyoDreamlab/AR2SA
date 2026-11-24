@@ -2192,7 +2192,6 @@ class Mask2FormerTransformerModule(nn.Module):
             prompt_features_projected: Tensor = None,
             output_hidden_states: bool = False,
             output_attentions: bool = False,
-            visualClip: Optional[bool]=None,
             audio_boost_mask: Optional[Tensor] = None,
             anchor_mask_features: Optional[Tensor] = None,
             anchor_audio_boost_mask: Optional[Tensor] = None,
