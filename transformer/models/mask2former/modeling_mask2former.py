@@ -2187,7 +2187,6 @@ class Mask2FormerTransformerModule(nn.Module):
     def forward(
             self,
             multi_scale_features: List[Tensor],
-            dpcknn_scale_features: List[Tensor],
             mask_features: Tensor,
             prompt_features_projected: Tensor = None,
             output_hidden_states: bool = False,
