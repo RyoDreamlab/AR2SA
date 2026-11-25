@@ -2843,7 +2843,6 @@ class Mask2FormerForUniversalSegmentation(Mask2FormerPreTrainedModel):
             return_dict=True,
             audio_boost_mask=audio_boost_mask,
             anchor_audio_boost_mask=anchor_audio_boost_mask,
-            aux_pixel_values_audio=aux_pixel_values_audio,
             aux_pixel_values_bg=aux_pixel_values_bg,
             anchor_aux_pixel_values_audio=anchor_aux_pixel_values_audio,
             anchor_aux_pixel_values_bg=anchor_aux_pixel_values_bg,
