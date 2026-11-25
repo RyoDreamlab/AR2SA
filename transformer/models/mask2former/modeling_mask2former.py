@@ -1898,9 +1898,6 @@ class Mask2FormerMaskedAttentionDecoder(nn.Module):
         aux_mask_features: Optional[Tensor]=None,
         aux_multi_stage_features: Optional[Tensor]=None,
         aux_multi_stage_positional_embeddings: Optional[Tensor]=None,
-           
-        # pre_inputs_embeds: torch.Tensor = None,
-        # pre_all_hidden_states: Optional[tuple] = None,
     ):
         r"""
         Args:
