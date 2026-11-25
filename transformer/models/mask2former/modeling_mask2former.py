@@ -2598,7 +2598,6 @@ class Mask2FormerModel(Mask2FormerPreTrainedModel):
             output_attentions=output_attentions,
             audio_boost_mask=audio_boost_mask,
             anchor_audio_boost_mask = anchor_audio_boost_mask,
-            CLIP_intersection=CLIP_intersection,
             dpcknn_scale_features=None,
             anchor_pixel_level_module_output_decoder=None,
             iter = iter,
