@@ -2709,7 +2709,6 @@ class Mask2FormerForUniversalSegmentation(Mask2FormerPreTrainedModel):
         audio_boost_mask: Optional[Tensor] = None,
         anchor_audio_boost_mask: Optional[Tensor] = None,
         aux_pixel_values_bg: Optional[Tensor] = None,
-        anchor_aux_pixel_values_audio: Optional[Tensor] = None,
         anchor_aux_pixel_values_bg: Optional[Tensor] = None,
         iter: Optional[int]=None,
         batch_id: Optional[str]=None,
