@@ -2190,7 +2190,6 @@ class Mask2FormerTransformerModule(nn.Module):
             audio_boost_mask: Optional[Tensor] = None,
             anchor_mask_features: Optional[Tensor] = None,
             anchor_audio_boost_mask: Optional[Tensor] = None,
-            aux_multi_scale_features: Optional[Tensor]=None,
             aux_mask_features: Optional[Tensor]=None,
             anchor_pixel_level_module_output_decoder: Optional[List]=None,
             iter: Optional[int] = None,
