@@ -1894,7 +1894,6 @@ class Mask2FormerMaskedAttentionDecoder(nn.Module):
         pre_intermediate: Optional[tuple] = None,
         pre_anchor_intermediate_mask_predictions: Optional[tuple] = None,
         pre_anchor_intermediate: Optional[tuple] = None,
-        aux_mask_features: Optional[Tensor]=None,
         aux_multi_stage_features: Optional[Tensor]=None,
         aux_multi_stage_positional_embeddings: Optional[Tensor]=None,
     ):
