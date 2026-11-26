@@ -2197,8 +2197,7 @@ class Mask2FormerTransformerModule(nn.Module):
             batch_id: Optional[str]=None,
             
     ) -> Mask2FormerMaskedAttentionDecoderOutput:
-        
-        anchor_multi_stage_features, anchor_multi_stage_positional_embeddings = [],[]
+
         aux_multi_stage_features,aux_multi_stage_positional_embeddings = [],[]
         multi_stage_features, multi_stage_positional_embeddings = [],[]
         size_list,entropy_map_list = [],[]
