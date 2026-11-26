@@ -2354,7 +2354,6 @@ class Mask2FormerTransformerModule(nn.Module):
         decoder_output,anchor_L = self.decoder(
             inputs_embeds=query_features,
             multi_stage_positional_embeddings=multi_stage_positional_embeddings,
-            anchor_multi_stage_positional_embeddings=anchor_multi_stage_positional_embeddings,
             pixel_embeddings=mask_features,
             anchor_pixel_embeddings=anchor_mask_features,
             encoder_hidden_states=multi_stage_features,
