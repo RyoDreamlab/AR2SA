@@ -1879,7 +1879,6 @@ class Mask2FormerMaskedAttentionDecoder(nn.Module):
         self,
         inputs_embeds: torch.Tensor = None,
         multi_stage_positional_embeddings: torch.Tensor = None,
-        anchor_multi_stage_positional_embeddings: torch.Tensor = None,
         pixel_embeddings: torch.Tensor = None,
         encoder_hidden_states: torch.Tensor = None,
         anchor_encoder_hidden_states: torch.Tensor = None,
