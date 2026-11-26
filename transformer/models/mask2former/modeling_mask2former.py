@@ -2358,7 +2358,6 @@ class Mask2FormerTransformerModule(nn.Module):
             pixel_embeddings=mask_features,
             anchor_pixel_embeddings=anchor_mask_features,
             encoder_hidden_states=multi_stage_features,
-            anchor_encoder_hidden_states=anchor_multi_stage_features,
             query_position_embeddings=query_embeddings,
             feature_size_list=size_list,
             output_hidden_states=output_hidden_states,
